@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --bg: #050505;
+  --ink: #f0f0f0;
+  --line: rgba(255, 255, 255, 0.08);
+  --accent-cyan: #00f2ff;
+  --accent-orange: #ff8c00;
+  --accent-purple: #bc13fe;
+  --accent-red: #ff3131;
+  --glass-surface: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Technical grid background */
+.bg-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+.glass-card {
+  background: var(--glass-surface);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 30px rgba(255, 140, 0, 0.1);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+}
+
+.text-glow-orange {
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 10px rgba(255, 49, 49, 0.5);
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate 10s linear infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.border-gradient-cyan {
+  border-image: linear-gradient(to right, var(--accent-cyan), transparent) 1;
+}
+
+.border-gradient-orange {
+  border-image: linear-gradient(to right, var(--accent-orange), transparent) 1;
+}

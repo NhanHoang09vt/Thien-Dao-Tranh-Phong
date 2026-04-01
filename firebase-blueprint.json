@@ -1,0 +1,96 @@
+{
+  "entities": {
+    "Character": {
+      "title": "Character",
+      "description": "Thông tin tu sĩ",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "race": { "type": "string" },
+        "realm": { "type": "integer" },
+        "realmLevel": { "type": "integer" },
+        "level": { "type": "integer" },
+        "exp": { "type": "integer" },
+        "linhThach": { "type": "integer" },
+        "equipment": {
+          "type": "object",
+          "properties": {
+            "Weapon": { "type": "object" },
+            "Armor": { "type": "object" },
+            "Accessory": { "type": "object" },
+            "Head": { "type": "object" },
+            "Legs": { "type": "object" }
+          }
+        },
+        "profession": {
+          "type": "object",
+          "properties": {
+            "type": { "type": "string" },
+            "level": { "type": "integer" },
+            "exp": { "type": "integer" },
+            "rank": { "type": "string" }
+          }
+        },
+        "story": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "lore": { "type": "string" },
+            "conflict": { "type": "string" },
+            "characterRole": { "type": "string" },
+            "stages": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": { "type": "string" },
+                  "description": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "activeQuests": {
+          "type": "array",
+          "items": { "type": "object" }
+        }
+      },
+      "required": ["uid", "name", "realm"]
+    },
+    "WorldState": {
+      "title": "WorldState",
+      "description": "Trạng thái thế giới",
+      "type": "object",
+      "properties": {
+        "globalEvent": { "type": "string" },
+        "bossAlive": { "type": "boolean" },
+        "lastUpdate": { "type": "string" }
+      }
+    },
+    "Settings": {
+      "title": "Settings",
+      "description": "Cấu hình hệ thống",
+      "type": "object",
+      "properties": {
+        "gemini_api_key": { "type": "string" },
+        "other_api_keys": { "type": "object" },
+        "updatedAt": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/characters/{uid}": {
+      "schema": "Character",
+      "description": "Dữ liệu nhân vật người chơi"
+    },
+    "/world/state": {
+      "schema": "WorldState",
+      "description": "Trạng thái chung của lục giới"
+    },
+    "/settings/api_keys": {
+      "schema": "Settings",
+      "description": "Lưu trữ các API key của hệ thống"
+    }
+  }
+}

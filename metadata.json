@@ -1,0 +1,9 @@
+{
+  "name": "Thiên Đạo Tranh Phong",
+  "description": "MMORPG Tu Tiên thế hệ mới với hệ thống Lục Giới, đột phá cảnh giới và AI Game Master.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
